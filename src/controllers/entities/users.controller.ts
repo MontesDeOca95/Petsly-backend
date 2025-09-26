@@ -29,7 +29,7 @@ export async function addUser(req: Request, res: Response) {
 		});
 
 		const userResponse = user.toObject();
-		// delete userResponse.password; // Remove password from response
+		
 		return res.status(201).json({ message: 'User created successfully', data: userResponse });
 	} catch (err: unknown) {
 		if(err instanceof Error) {
