@@ -11,3 +11,7 @@ jobs:
     steps:
       - name: Echo Hello world action steps
         run: echo "Hello world!"
+
+      - name: Time stamp
+        run: echo The time is $(Get-Date)
+      - run: ls -l
