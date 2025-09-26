@@ -3,11 +3,11 @@ name: Say hello
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   hello_world:
     runs-on: windows-latest
     steps:
-      - name: Hello world action steps
+      - name: Echo Hello world action steps
         run: echo "Hello world!"
