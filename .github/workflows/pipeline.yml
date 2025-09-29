@@ -7,19 +7,22 @@ on:
 
 jobs:
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     env: 
       MONGO_URI: ${{ secrets.MONGO_URI }}
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+          
       - uses: actions/setup-node@v2
         with:
           node-version: '22'
       - name: Install dependencies
         run: npm install --no-audit --no-fund --no-optional
+
       - name: Crear archivo .env
         run: echo "MONGO_URI=${{ secrets.MONGO_URI }}" > .env
+
       - name: Run start script
         run: npm run start
