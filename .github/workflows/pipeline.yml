@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: windows-latest
+    env: 
+      MONGO_URI: ${{ secrets.MONGO_URI }}
     steps:
       - uses: actions/checkout@v2
         with:
@@ -16,6 +18,6 @@ jobs:
         with:
           node-version: '22'
       - name: Install dependencies
-        run: npm install
+        run: npm install --no-audit --no-fund --no-optional
       - name: Run start script
         run: npm run start
